@@ -1,5 +1,7 @@
 'use client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const NAVBAR = () => {
@@ -13,22 +15,27 @@ const NAVBAR = () => {
           <div className="flex min-h-full items-center justify-center p-4">
             <DialogPanel
               transition
-              className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+              className="w-full max-w-3xl flex flex-col border border-neutral-400 items-center justify-center h-[55vh] rounded-xl bg-[#171717] duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             >
-              <DialogTitle as="h3" className="text-base/7 font-medium text-white">
-                Payment successful
-              </DialogTitle>
-              <p className="mt-2 text-sm/6 text-white/50">
-                Your payment has been successfully submitted. We’ve sent you an email with all of the details of your
-                order.
-              </p>
-              <div className="mt-4">
-                <button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+              <span className='block mb-4 font-bold text-gray-800 text-2xl md:text-2xl lg:text-3xl dark:text-neutral-200'>
+                You Can Also Upload Your<span className='grad-text bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent'> JSON File</span></span>
+                <h5 className='text-neutral-400 mb-2 w-[70%] text-sm text-center'>You can upload your JSON File or you can used the Editor to directly write and view the JSON Data</h5>
+              <div className="text-center p-3">
+                <Link
+                  className="inline-flex w-[200px] hover:bg-neutral-900 duration-100 border border-neutral-400 justify-center h-40 mr-16 items-center gap-2 rounded-xl bg-neutral-800 py-1.5 px-3 text-xl text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
                   onClick={() => setIsOpen(false)}
+                  href=""
                 >
-                  Got it, thanks!
-                </button>
+                  Upload JSON File
+                </Link>
+                <span className='text-neutral-400'>or</span>
+                <Link
+                  className="inline-flex w-[200px] hover:bg-neutral-900 duration-100 border border-neutral-400 justify-center h-40 ml-16 items-center gap-2 rounded-xl bg-neutral-800 py-1.5 px-3 text-xl text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={() => setIsOpen(false)}
+                  href="/editor"
+                >
+                  Go To Editor
+                </Link>
               </div>
             </DialogPanel>
           </div>
@@ -52,13 +59,13 @@ const NAVBAR = () => {
           <div className="flex items-center gap-x-1 md:gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
             <button
               type="button"
-              onClick={() => setIsOpen(true)}
               className="py-2 px-4 inline-flex items-center gap-x-2 text-[17px] font-medium rounded-xl bg-white border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white dark:focus:text-white"
-            >
+              >
               Sign in
             </button>
             <button
               type="button"
+              onClick={() => setIsOpen(true)}
               className="py-2 px-4 inline-flex items-center gap-x-2 text-xl font-medium rounded-xl border border-transparent bg-violet-700 text-black hover:bg-[#6047EC] focus:outline-none focus:bg-[#6047EC] transition disabled:opacity-50 disabled:pointer-events-none"
             >
               Editor

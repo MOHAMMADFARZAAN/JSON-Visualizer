@@ -2,7 +2,7 @@ import React from 'react'
 
 const FOOTER = () => {
   return (
-    <footer className="mt-auto mt-[100px] border-t border-neutral-500 border-t-3 w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+    <footer className="mt-auto border-t border-neutral-500 border-t-3 w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
   {/* Grid */}
   <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
     <div>

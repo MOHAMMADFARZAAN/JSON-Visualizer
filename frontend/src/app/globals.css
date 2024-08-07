@@ -5,3 +5,142 @@
 body{
     background-color: #171717;
 }
+
+
+
+/* Editor loader home page */
+
+
+/* From Uiverse.io by vikas7754 */ 
+/* @keyframes blinkCursor {
+    50% {
+      border-right-color: transparent;
+    }
+  } */
+  
+  @keyframes typeAndDelete {
+    0%,
+    10% {
+      width: 0;
+    }
+  
+    45%,
+    55% {
+      width: 15em;
+    }
+  
+    90%,
+    100% {
+      width: 0;
+    }
+  }
+  
+  .terminal-loader {
+    position: absolute;
+    scale: 0.6;
+    opacity: 0.5;
+    transform: rotate(-20deg);
+    left: 30px;
+    z-index: -1;
+    top: 300px;
+    width: 100%;
+    max-width: 350px;
+    height: 380px;
+    background: #1c1c1c;
+    border: 1px solid #ffffff3e;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .terminal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #343434;
+    padding: 6px;
+  }
+  
+  .terminal-controls {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    gap: 7px;
+  }
+  
+  .control {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #777;
+  }
+  
+  .control.close {
+    background-color: #4454EB;
+  }
+  
+  .control.minimize {
+    background-color: #4454EB;
+  }
+  
+  .control.maximize {
+    background-color: #4454EB;
+  }
+  
+  .terminal-title {
+    color: #eeeeeec1;
+  }
+  
+  .content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: larger;
+    animation: typeAndDelete 4s steps(50) infinite;
+    color: #9CDCFE;
+    font-weight: 300;
+  }
+  .br-main{
+    color: yellow;
+  }
+  .br-sub{
+    color: rgb(210, 40, 210);
+  }
+  .text2 {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: larger;
+    overflow: hidden;
+    animation: typeAndDelete2 3.7s steps(50) infinite;
+    color: #9CDCFE;
+    font-weight: 300;
+  }
+  
+  @keyframes typeAndDelete2 {
+    0%,
+    10% {
+      width: 0;
+    }
+  
+    45%,
+    55% {
+      width: 15em;
+    }
+  
+    90%,
+    100% {
+      width: 0;
+    }
+  }
+  .text3{
+    color: #CE9178;
+  }
+  
