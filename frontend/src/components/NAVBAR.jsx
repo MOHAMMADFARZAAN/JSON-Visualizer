@@ -7,9 +7,17 @@ import React, { useState } from 'react'
 const NAVBAR = () => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [signisOpen, setsignisOpen] = useState(false)
 
   return (
     <>
+
+      {/* OPEN EDITOR */}
+
+
+
+      {/* editor button dialog box */}
+
       <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={() => setIsOpen(false)}>
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
@@ -41,24 +49,68 @@ const NAVBAR = () => {
           </div>
         </div>
       </Dialog>
+
+
+
+
+      {/* SIGN IN BUTTON DIALOG BOX */}
+
+
+      <Dialog open={signisOpen} as="div" className="relative z-10 focus:outline-none" onClose={() => setsignisOpen(false)}>
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4">
+            <DialogPanel
+              transition
+              className="w-full max-w-3xl flex flex-col border border-neutral-400 items-center justify-center h-[55vh] rounded-xl bg-[#171717] duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+            >
+              <span className='block mb-4 font-bold text-gray-800 text-2xl md:text-2xl lg:text-3xl dark:text-neutral-200'>
+                You Can Also Upload Your</span>
+                <h5 className='text-neutral-400 mb-2 w-[70%] text-sm text-center'>You can upload your JSON File or you can used the Editor to directly write and view the JSON Data</h5>
+              <div className="text-center p-3">
+                <Link
+                  className="inline-flex w-[200px] hover:bg-neutral-900 duration-100 border border-neutral-400 justify-center h-40 mr-16 items-center gap-2 rounded-xl bg-neutral-800 py-1.5 px-3 text-xl text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={() => setsignisOpen(false)}
+                  href=""
+                >
+                  Upload JSON File
+                </Link>
+                <span className='text-neutral-400'>or</span>
+                <Link
+                  className="inline-flex w-[200px] hover:bg-neutral-900 duration-100 border border-neutral-400 justify-center h-40 ml-16 items-center gap-2 rounded-xl bg-neutral-800 py-1.5 px-3 text-xl text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={() => setsignisOpen(false)}
+                  href="/editor"
+                >
+                  Go To Editor
+                </Link>
+              </div>
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
+
+
+
+
+
       {/* ========== HEADER ========== */}
       <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
         <nav className="relative max-w-8xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto">
           <div className="md:col-span-3">
             {/* Logo */}
-            <p
+            <Link
               className="flex-none text-4xl inline-block font-bold bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent focus:outline-none focus:opacity-80 "
-              href="../templates/creative-agency/index.html"
+              href=""
               aria-label="Preline"
             >
               JSONSight
-            </p>
+            </Link>
             {/* End Logo */}
           </div>
           {/* Button Group */}
           <div className="flex items-center gap-x-1 md:gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
             <button
               type="button"
+              onClick={() => setsignisOpen(true)}
               className="py-2 px-4 inline-flex items-center gap-x-2 text-[17px] font-medium rounded-xl bg-white border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white dark:focus:text-white"
               >
               Sign in

@@ -124,6 +124,8 @@ const Home = () => {
 
 
       <>
+
+      {/* the editor animation */}
       <div>
   <div className="terminal-loader">
     <div className="terminal-header">
@@ -150,6 +152,10 @@ const Home = () => {
     </div>
   </div>
   </div>
+
+
+
+
 </>
 
     </>
