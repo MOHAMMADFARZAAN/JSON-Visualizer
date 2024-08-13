@@ -19,9 +19,9 @@ const Home = () => {
           {/* End Announcement Banner */}
           {/* Title */}
           <div className="mt-5 max-w-2xl text-center mx-auto">
-            <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
+            <h1 className="block font-thin text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
               Interactive JSON
-              <span className="grad-text bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
+              <span className="grad-text font-bold bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
                 Visualizer
               </span>
             </h1>
@@ -152,7 +152,6 @@ const Home = () => {
     </div>
   </div>
   </div>
-
 
 
 

@@ -1,12 +1,4 @@
-'use client';
-import CodeEditor from '@/components/EDITOR';
-import VISUALIZER from '@/components/VISUALIZER';
-import { Editor } from '@monaco-editor/react';
-import React, { useState } from 'react';
-
-const JSONEditor = () => {
-
-  const [jsonData, setJsonData] = useState(JSON.stringify({
+const jsonObj = `{
     "name": "frontend",
     "version": "0.1.0",
     "private": true,
@@ -17,7 +9,9 @@ const JSONEditor = () => {
       "lint": "next lint"
     },
     "dependencies": {
-      "@fortawesome/fontawesome-svg-core": "^6.6.0",
+      "@fortawesome/fontawesome-svg-core": {
+        "a" : "b"
+      },
       "@fortawesome/free-solid-svg-icons": "^6.6.0",
       "@fortawesome/react-fontawesome": "^0.2.2",
       "@headlessui/react": "^2.1.2",
@@ -34,19 +28,24 @@ const JSONEditor = () => {
       "postcss": "^8",
       "tailwindcss": "^3.4.1"
     }
-  }
-  ));
+  }`
 
-  return (
-    <div className='grid grid-cols-12'>
-      <div className='col-span-4'>
-        <CodeEditor code={jsonData} setCode={setJsonData} />
-      </div>
-      <div className='col-span-8'>
-        <VISUALIZER code={jsonData} />
-      </div>
-    </div>
-  )
+
+const obj = JSON.parse(jsonObj);
+// console.log(obj);
+
+
+
+
+const extractValues = (obj, lvl = 1) => {
+    for (let pair of Object.entries(obj)) {
+        // console.log(pair);
+        if (typeof pair[1] !== 'object') {
+            console.log(pair[0], pair[1], lvl);
+        } else {
+            extractValues(pair[1], lvl + 1)
+        }
+    }
 }
 
-export default JSONEditor;
+extractValues(obj);
