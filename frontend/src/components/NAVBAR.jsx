@@ -21,7 +21,6 @@ const NAVBAR = () => {
 
 
       {/* editor button dialog box */}
-
       <Dialog open={showAuth} as="div" className="relative z-10 focus:outline-none" onClose={() => setShowAuth(false)}>
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
@@ -89,7 +88,7 @@ const NAVBAR = () => {
           <div className="md:col-span-3">
             {/* Logo */}
             <Link
-              className="flex-none text-4xl inline-block font-bold bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent focus:outline-none focus:opacity-80 "
+              className="flex-none text-5xl inline-block font-bold bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent focus:outline-none focus:opacity-80 "
               href=""
               aria-label="Preline"
             >

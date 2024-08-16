@@ -2,6 +2,9 @@ import Link from 'next/link';
 import React from 'react'
 
 const Login = ({ loginOpen, setLoginOpen }) => {
+
+    
+
     return (
         <div className="w-full max-w-md p-5 flex flex-col h-[60vh] border border-neutral-400 items-center justify-center h-[55vh] rounded-xl bg-[#171717] duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
             <span className='text-4xl font-bold m-2 mt-8 grad-text bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent'>Sign In</span>
