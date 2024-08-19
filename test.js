@@ -36,12 +36,17 @@ const obj = JSON.parse(jsonObj);
 
 
 
+const nodeData = [];
 
 const extractValues = (obj, lvl = 1) => {
     for (let pair of Object.entries(obj)) {
         // console.log(pair);
         if (typeof pair[1] !== 'object') {
             console.log(pair[0], pair[1], lvl);
+            nodeData.push({
+              key : pair[0],
+              value : pair[1]
+            })
         } else {
             extractValues(pair[1], lvl + 1)
         }
@@ -49,3 +54,4 @@ const extractValues = (obj, lvl = 1) => {
 }
 
 extractValues(obj);
+console.log(nodeData);
