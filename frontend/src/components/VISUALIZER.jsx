@@ -83,7 +83,7 @@ export default function App({ code }) {
   );
 
   return (
-    <div className='m-5 border border-neutral-500 rounded-xl' style={{ width: '60vw', height: '80vh' }}>
+    <div className='m-5 border border-neutral-500 rounded-xl' style={{ width: '55vw', height: '80vh' }}>
       <ReactFlow
         nodeTypes={nodeTypes}
         nodes={nodes}
