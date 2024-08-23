@@ -27,7 +27,7 @@ const CodeEditor = ({ code, setCode }) => {
           //   vertical: 'hidden', // Hides the vertical scrollbar
           //   horizontal: 'hidden', // Hides the horizontal scrollbar
           // },
-          lineNumbersMinChars: 3, // Reduces the width reserved for line numbers
+          lineNumbersMinChars: 4, // Reduces the width reserved for line numbers
           lineNumbers: 'on', // Ensures line numbers are displayed
           lineNumbersFontSize: 12, // Adjust the font size for line numbers (Monaco doesn't directly support this, but setting fontSize here will affect line numbers too)
           minimap: {
