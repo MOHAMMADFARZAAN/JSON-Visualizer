@@ -37,18 +37,30 @@ const obj = JSON.parse(jsonObj);
 
 
 const nodeData = [];
+let nodeId = 0;
 
-const extractValues = (obj, lvl = 1) => {
+const extractValues = (obj, lvl = 1, parentId = null) => {
     for (let pair of Object.entries(obj)) {
-        // console.log(pair);
         if (typeof pair[1] !== 'object') {
-            console.log(pair[0], pair[1], lvl);
             nodeData.push({
-              key : pair[0],
-              value : pair[1]
-            })
+                id: nodeId++,
+                label: `${pair[0]}: ${pair[1]}`,
+                type: 'data',
+                x: lvl * 100, // Example x coordinate based on level
+                y: nodeId * 50, // Example y coordinate based on nodeId
+                parentId: parentId
+            });
         } else {
-            extractValues(pair[1], lvl + 1)
+            const currentId = nodeId++;
+            nodeData.push({
+                id: currentId,
+                label: pair[0],
+                type: 'object',
+                x: lvl * 100, // Example x coordinate based on level
+                y: nodeId * 50, // Example y coordinate based on nodeId
+                parentId: parentId
+            });
+            extractValues(pair[1], lvl + 1, currentId);
         }
     }
 }
