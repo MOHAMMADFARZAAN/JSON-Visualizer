@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   ReactFlow,
   MiniMap,
@@ -17,6 +17,8 @@ import classes from './visualizer.module.css';
 function JSONBlock({ data }) {
 
   const { jsonData } = data;
+  console.log(jsonData);
+  
 
   const onChange = useCallback((evt) => {
     console.log(evt.target.value);
@@ -69,11 +71,51 @@ const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 
 export default function App({ code }) {
   console.log(code);
+  const obj = JSON.parse(code);
+  const nodeData = [];
+  // console.log(obj);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState(nodeData);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  console.log(nodes);
+  
+  useEffect(() => {
+    const obj = JSON.parse(code);
+    let nodeId = 0;
 
+    const extractValues = (obj, lvl = 1, parentId = null) => {
+      for (let pair of Object.entries(obj)) {
+        if (typeof pair[1] !== 'object') {
+          nodeData.push({
+            id: `${nodeId++}`,
+            type: 'jsonBlock',
+            position: {
+              x: lvl * 100, // Example x coordinate based on level
+              y: nodeId * 50 // Example y coordinate based on nodeId
+            },
+            data: { jsonData: { name: 'raju', email: 'raju@mail.com', password: '1234' } },
+            parentId: parentId
+          });
+        } else {
+          const currentId = `${nodeId++}`;
+          nodeData.push({
+            id: currentId,
+            type: 'jsonBlock',
+            position: {
+              x: lvl * 100, // Example x coordinate based on level
+              y: nodeId * 50 // Example y coordinate based on nodeId
+            },
+            data: { jsonData: { name: 'raju', email: 'raju@mail.com', password: '1234' } },
+            parentId: parentId
+          });
+          extractValues(pair[1], lvl + 1, currentId);
+        }
+      }
+    };
 
+    extractValues(obj);
+    setNodes(nodeData);
+  }, [code]);
 
   const nodeTypes = useMemo(() => ({ jsonBlock: JSONBlock }), []);
 

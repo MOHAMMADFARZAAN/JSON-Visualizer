@@ -46,8 +46,10 @@ const extractValues = (obj, lvl = 1, parentId = null) => {
                 id: nodeId++,
                 label: `${pair[0]}: ${pair[1]}`,
                 type: 'data',
-                x: lvl * 100, // Example x coordinate based on level
-                y: nodeId * 50, // Example y coordinate based on nodeId
+                position: {
+                    x: lvl * 100, // Example x coordinate based on level
+                    y: nodeId * 50 // Example y coordinate based on nodeId
+                },
                 parentId: parentId
             });
         } else {
@@ -56,8 +58,10 @@ const extractValues = (obj, lvl = 1, parentId = null) => {
                 id: currentId,
                 label: pair[0],
                 type: 'object',
-                x: lvl * 100, // Example x coordinate based on level
-                y: nodeId * 50, // Example y coordinate based on nodeId
+                position: {
+                    x: lvl * 100, // Example x coordinate based on level
+                    y: nodeId * 50 // Example y coordinate based on nodeId
+                },
                 parentId: parentId
             });
             extractValues(pair[1], lvl + 1, currentId);
