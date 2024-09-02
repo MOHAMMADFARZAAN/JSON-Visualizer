@@ -39,10 +39,10 @@ const JSONEditor = () => {
 
   return (
     <div className='grid grid-cols-12'>
-      <div className='col-span-4'>
+      <div className='col-span-5'>
         <CodeEditor code={jsonData} setCode={setJsonData} />
       </div>
-      <div className='col-span-8'>
+      <div className='col-span-7'>
         <VISUALIZER code={jsonData} />
       </div>
     </div>
